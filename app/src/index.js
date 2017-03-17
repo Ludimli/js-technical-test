@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './styles/index.css';
-import data from './data.js'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './reducers/index'
+import App from './components/App';
+import './style.css';
 
-let props = {
-	initialState: data,
-};
+let store = createStore(reducer);
 
 ReactDOM.render(
-  <App {...props } />,
+	<Provider store={store}>
+  	<App />
+  </Provider>,
   document.getElementById('root')
 );
