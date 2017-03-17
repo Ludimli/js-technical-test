@@ -25,7 +25,7 @@ const getUsers = (filteredUserIds, messages) => {
     users.set(m.user.id, {
       id: m.user.id,
       login: m.user.login,
-      avatarUrl: m.user.avatarUrl,
+      avatar_url: m.user.avatar_url,
       color: intToRGB(hashCode(m.user.login)),
       isFiltered: typeof(filteredUserIds.find(id => id === m.user.id)) !== 'undefined',
       messageCount

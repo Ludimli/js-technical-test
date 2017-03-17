@@ -55,7 +55,7 @@ function fetchComments(issueUrl) {
   return (dispatch) => {
     dispatch(requestComments(issueUrl))
 
-    return fetch(`https://api.github.com/repos/${issueUrl}/comments`)
+    return fetch(`https://api.github.com/repos${issueUrl}/comments`)
       .then(response => response.json())
       .then(json =>
 
@@ -68,7 +68,7 @@ export function fetchIssue(issueUrl) {
   return (dispatch) => {
     dispatch(requestIssue(issueUrl))
 
-    return fetch(`https://api.github.com/repos/${issueUrl}`)
+    return fetch(`https://api.github.com/repos${issueUrl}`)
       .then(response => response.json())
       .then(json =>
         dispatch(receiveIssue(issueUrl, json))
