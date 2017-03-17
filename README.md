@@ -1,5 +1,18 @@
 # StadLine Technical Test
 
+## Installation & Lancement
+
+Depuis le dépôt
+```
+cd app
+npm start
+```
+Puis aller sur 
+```
+http://localhost:3000/:owner/:repo/issues/:number
+ex: http://localhost:3000/nodejs/node/issues/4851
+```
+
 ## Présentation générale
 
 ### Tâche
