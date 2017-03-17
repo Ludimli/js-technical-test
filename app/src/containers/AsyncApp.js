@@ -23,8 +23,8 @@ class AsyncApp extends Component {
         }
         {comments.length > 0 &&
           <div className="App">
-            <Settings />
-            <VisibleThread />
+              <Settings />
+              <VisibleThread />
           </div>
         }
       </div>

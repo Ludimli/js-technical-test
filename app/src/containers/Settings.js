@@ -17,10 +17,16 @@ function intToRGB(i){
     return "#" + ("00000".substring(0, 6 - c.length) + c);
 }
 
-const getUsers = (filteredUserIds, messages) => {
+const getUsers = (filteredUserIds, issue, messages) => {
   let users = new Map();
 
-  messages.forEach(m => {
+  // push the topic into the messages
+  var msg = messages.map(x => x);
+  if (issue !== null && issue.user !== null) {
+    msg.push(issue);
+  }
+
+  msg.forEach(m => {
     let messageCount = users.get(m.user.id) === undefined ? 1 : users.get(m.user.id).messageCount + 1;
     users.set(m.user.id, {
       id: m.user.id,
@@ -35,8 +41,9 @@ const getUsers = (filteredUserIds, messages) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    users: getUsers(state.toggleFilters.filteredUserIds, state.commentsOnIssue.comments),
+    users: getUsers(state.toggleFilters.filteredUserIds, state.selectedIssue.issue, state.commentsOnIssue.comments),
   };
 }
 

@@ -3,3 +3,112 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.Thread {
+	flex-grow: 1;
+	background-color: #CCC;
+	border-left: 2px solid #999;
+	padding: 10px;
+}
+
+.Message {
+	display: flex;
+}
+
+.Message.owner {
+	flex-direction: row-reverse;
+}
+
+.Message-body {
+	background-color: #AAA;
+	padding: 8px 15px;
+	margin-bottom: 5px;
+	margin-left: 30px;
+	border-radius: 5px;
+
+	position: relative;
+}
+
+.Message.owner .Message-body {
+	background-color: #EEE;
+	margin-left: 0;
+	margin-right: 30px;
+}
+
+.Message-body::before {
+	content: "";
+	position: absolute;
+	border-style: solid;
+	display: block;
+	width: 0;
+  	top: 10px;
+	bottom: auto;
+	left: -15px;
+	border-width: 7px 15px 7px 0;
+	border-color: transparent #AAA;
+}
+
+.Message.owner .Message-body::before {
+	display: none;
+}
+
+
+.Message-body::after {
+	content: "";
+	position: absolute;
+	border-style: solid;
+	display: none;
+	width: 0;
+  	top: 10px;
+	bottom: auto;
+	right: -15px;
+	border-width: 7px 0 7px 15px;
+	border-color: transparent #EEE;
+}
+
+.Message.owner .Message-body::after {
+	display: block;
+}
+
+.UserList {
+	width: 25%;
+	padding: 10px;
+}
+
+.UserList h1 {
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.PieChart {
+	display: flex;
+	flex-direction: column;
+}
+
+.PieChart svg {
+	height: 200px;
+}
+
+.User {
+	display: flex;
+	align-items: center;
+}
+
+.User-login {
+	flex-grow: 1;
+	padding-left: 5px;
+	cursor: pointer;
+	vertical-align: center;
+}
+
+.Avatar img {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+}

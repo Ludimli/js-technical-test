@@ -7,6 +7,7 @@ import Avatar from './Avatar'
 //    login: string
 //    messageCount: number
 //		isFiltered: bool
+//    isOwner: bool
 //    onClick: function
 // }
 
@@ -38,7 +39,7 @@ class User extends Component {
 User.propTypes = {
   id: PropTypes.number.isRequired,
   login: PropTypes.string.isRequired,
-  avatarUrl: PropTypes.string.isRequired,
+  avatar_url: PropTypes.string.isRequired,
   messageCount: PropTypes.number.isRequired,
   isFiltered: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,

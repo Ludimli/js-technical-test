@@ -8,13 +8,14 @@ import Avatar from './Avatar'
 //				id: number,
 //				login: string,
 //				avatar_url: string,
+//        isOwner: bool,
 //	  },
 // }
 
 class Message extends Component {
   render() {
     return (
-      <div className="Message">
+      <div className={`Message ${this.props.isOwner ? 'owner' : ''}`}>
       	<Avatar {...this.props.user} />
       	<div className="Message-body">
       	  {this.props.body}

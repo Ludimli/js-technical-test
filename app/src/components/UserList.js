@@ -22,7 +22,7 @@ class UserList extends Component {
       return null;
     }
     return (
-      <div>
+      <div className="PieChart">
         <h1>Qui est le plus bavard ?</h1>
         <PieChart
           slices={slices}
