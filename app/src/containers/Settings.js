@@ -1,15 +1,21 @@
 import { connect } from 'react-redux'
 import UserList from '../components/UserList'
 
-/*const getRandomColor = () => {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++ ) {
-      color += letters[Math.floor(Math.random() * 16)];
-  }
-  console.log(color);
-  return color;
-}*/
+function hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+       hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+} 
+
+function intToRGB(i){
+    var c = (i & 0x00FFFFFF)
+        .toString(16)
+        .toUpperCase();
+
+    return "#" + ("00000".substring(0, 6 - c.length) + c);
+}
 
 const getUsers = (filteredUserIds, messages) => {
   let users = new Map();
@@ -20,7 +26,7 @@ const getUsers = (filteredUserIds, messages) => {
       id: m.user.id,
       login: m.user.login,
       avatarUrl: m.user.avatarUrl,
-      color: m.user.color,
+      color: intToRGB(hashCode(m.user.login)),
       isFiltered: typeof(filteredUserIds.find(id => id === m.user.id)) !== 'undefined',
       messageCount
     });
@@ -30,7 +36,7 @@ const getUsers = (filteredUserIds, messages) => {
 
 const mapStateToProps = (state) => {
   return {
-    users: getUsers(state.filteredUserIds, state.issue.messages)
+    users: getUsers(state.toggleFilters.filteredUserIds, state.commentsOnIssue.comments),
   };
 }
 

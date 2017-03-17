@@ -7,7 +7,9 @@ const getVisibleMessages = (messages, filteredUserIds) => {
 
 const mapStateToProps = (state) => {
   return {
-    messages: getVisibleMessages(state.issue.messages, state.filteredUserIds)
+  	title: state.selectedIssue.issue !== null ? state.selectedIssue.issue.title : '',
+  	number: state.selectedIssue.issue !== null ? state.selectedIssue.issue.number : 0,
+    messages: state.commentsOnIssue.comments !== null ? getVisibleMessages(state.commentsOnIssue.comments, state.toggleFilters.filteredUserIds) : []
   }
 }
 

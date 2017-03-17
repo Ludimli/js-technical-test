@@ -4,11 +4,13 @@ import Message from './Message.js'
 // Props contract:
 // {
 //    title: string
+//    number: numeric
 //    messages: Array<Message>
 // }
 
 class Thread extends Component {
   render() {
+
     let messages = [];
     if (this.props.messages != null && Array.isArray(this.props.messages)) {
       messages = this.props.messages.map((message, index) => {
@@ -18,7 +20,7 @@ class Thread extends Component {
 
     return (
       <div className="Thread">
-          <h2>{this.props.title}</h2>
+          <h2>{this.props.title} #{this.props.number}</h2>
           <div className="Thread-messages">
             {messages}
           </div>

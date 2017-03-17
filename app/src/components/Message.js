@@ -7,7 +7,7 @@ import Avatar from './Avatar'
 //	  user: {
 //				id: number,
 //				login: string,
-//				avatarUrl: string,
+//				avatar_url: string,
 //	  },
 // }
 

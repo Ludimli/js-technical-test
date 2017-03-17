@@ -18,6 +18,9 @@ import PieChart from 'react-simple-pie-chart';
 class UserList extends Component {
   renderPieChart() {
     const slices = this.props.users.filter(u => !u.isFiltered).map((u) => { return { value: u.messageCount, color: u.color }});
+    if (slices.length === 0) {
+      return null;
+    }
     return (
       <div>
         <h1>Qui est le plus bavard ?</h1>

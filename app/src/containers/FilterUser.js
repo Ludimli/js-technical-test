@@ -4,7 +4,7 @@ import User from '../components/User'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    isFiltered: typeof(state.filteredUserIds.find(id => ownProps.id === id)) !== 'undefined',
+    isFiltered: typeof(state.toggleFilters.filteredUserIds.find(id => ownProps.id === id)) !== 'undefined',
   };
 }
 
